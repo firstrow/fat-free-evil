@@ -1,5 +1,6 @@
 * Fat Free Evil Emacs Config
 ** Screenshots
+   [[./screenshot.png]]
 ** Motivation
    This configuration is build on top of awesome [[https://github.com/Kungsgeten/ryo-modal][ryo-modal-mode]]. 
    I've been using emacs + evil since 2014. Evil is exelent vim emulation

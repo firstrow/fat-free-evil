@@ -80,7 +80,7 @@
 					                               (propertize "<I>" 'face 'fringe))))
         (add-to-list 'global-mode-string '(:eval (format " #%s " (safe-persp-name (get-frame-persp)))))
        )))
-    
+
   (add-hook 'after-focus-change-function 'add-ryo-modeline-status)
   (add-hook 'window-configuration-change-hook 'add-ryo-modeline-status)
   (add-hook 'focus-in-hook                    'add-ryo-modeline-status))
