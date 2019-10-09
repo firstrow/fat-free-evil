@@ -1,0 +1,11 @@
+* Fat Free Evil Emacs Config
+** Motivation
+** Installing
+You can clone this repository directly to ~/.emacs.d/ directory, but I presonally like to keep my emacs config in code directory and link files with [[https://www.gnu.org/software/stow/manual/stow.html][stow]].
+This way I can keep .gitingore empty, since config files will be linked.
+
+#+BEGIN_SRC sh
+git clone git@github.com:firstrow/fat-free-evil.git
+mkdir ~/.emacs.d
+stow -t ~/.emacs.d/ .
+#+END_SRC
