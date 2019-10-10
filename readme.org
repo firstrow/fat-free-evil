@@ -6,13 +6,13 @@
    I've been using emacs + evil since 2014. Evil is exelent vim emulation
    of vim keybindigs, but it is also hacky and hooks deep into emacs. Getting evil working properly with packages sometimes is hard and requires additional configurations.
    Ofcourse Doom and Spacemacs solved most of the integration issues, but still I consider evil to be too complex.
-   On the other side I wanted to explore emacs internals more and built my own simple modal mode.
+   On the other side I wanted to explore emacs internals more and built my own modal mode.
 ** Goals
    - Minimal setup
    - Fast startup time ~1 second.
    - As close to vanilla emacs as possible.
 ** Keybindings
-   You can find simple "fat free" modal mode in [[https://github.com/firstrow/fat-free-evil/blob/master/lisp/init-fatfree-evil.el][lisp/init-fatfree-evil.el]]
+   You can find "fat free" modal mode keybindings in [[https://github.com/firstrow/fat-free-evil/blob/master/lisp/init-fatfree-evil.el][lisp/init-fatfree-evil.el]]
 ** Installing
 You can clone this repository directly to ~/.emacs.d/ directory, but I presonally like to keep my emacs config in code directory and link files with [[https://www.gnu.org/software/stow/manual/stow.html][stow]].
 This way I can keep .gitingore empty, since config files will be linked.
@@ -23,3 +23,5 @@ cd ~/code/fat-free-evil
 mkdir ~/.emacs.d
 stow -t ~/.emacs.d/ .
 #+END_SRC
+** Links
+   - [[https://github.com/mrkkrp/modalka#evil][Emacs modal editing tools]]
