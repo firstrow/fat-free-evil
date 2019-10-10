@@ -134,7 +134,7 @@
 ;; portion of the minibuffer.
 (setq minibuffer-prompt-properties '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
 (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-  
+
 ;; (toggle-frame-maximized)
 
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
@@ -194,8 +194,8 @@ RED, GREEN and BLUE should be between 0.0 and 1.0, inclusive."
 
   (defun linus/hex-to-apple-rgb-hex (hex)
     (apply #'color-rgb-to-hex
-	   (apply #'pl/color-srgb-to-apple-rgb (color-name-to-rgb hex))))
-  
+       (apply #'pl/color-srgb-to-apple-rgb (color-name-to-rgb hex))))
+
   (defun linus/moody-slant (direction c1 c2 c3 &optional height)
     (apply
      #'moody-slant
@@ -207,7 +207,7 @@ RED, GREEN and BLUE should be between 0.0 and 1.0, inclusive."
 
   (setq moody-slant-function 'linus/moody-slant)
   ;; end fix
-  
+
   (setq-default x-underline-at-descent-line t
                 column-number-mode t))
 

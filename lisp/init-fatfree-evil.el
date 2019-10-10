@@ -24,7 +24,7 @@
     (let ((file-name (or (buffer-file-name) list-buffers-directory)))
       (if file-name
           (message (kill-new file-name))
-	(error "Buffer not visiting a file"))))
+    (error "Buffer not visiting a file"))))
 
   (ryo-modal-keys
    ("i" insert-mode :exit t)
@@ -76,10 +76,10 @@
     (let ((win (frame-selected-window)))
       (unless (minibuffer-window-active-p win)
         (add-to-list 'global-mode-string '(:eval (if (bound-and-true-p ryo-modal-mode)
-					                               (propertize "<R>" 'face 'lazy-highlight)
-					                               (propertize "<I>" 'face 'fringe))))
+                                                     (propertize "<R>" 'face 'lazy-highlight)
+                                                   (propertize "<I>" 'face 'fringe))))
         (add-to-list 'global-mode-string '(:eval (format " #%s " (safe-persp-name (get-frame-persp)))))
-       )))
+        )))
 
   (add-hook 'after-focus-change-function 'add-ryo-modeline-status)
   (add-hook 'window-configuration-change-hook 'add-ryo-modeline-status)
