@@ -3,7 +3,7 @@
    [[./screenshot.png]]
 ** Motivation
    This configuration is build on top of awesome [[https://github.com/Kungsgeten/ryo-modal][ryo-modal-mode]]. 
-   I've been using emacs + evil since 2014. Evil is exelent vim emulation, but it is also hacky and hooks deep into emacs.
+   I've been using emacs + evil since 2014. Evil is excellent vim emulation, but it is also hacky and hooks deep into emacs.
    Getting evil working properly with packages sometimes is hard and requires additional configurations.
    Ofcourse Doom and Spacemacs solved most of the integration issues, but still I consider evil to be too complex.
    On the other side I wanted to explore emacs internals more and built my own modal mode.
