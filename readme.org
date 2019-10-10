@@ -16,7 +16,7 @@
    - "M-SPC" for major mode hydras
    - You can find all "fat free" modal mode keybindings in [[https://github.com/firstrow/fat-free-evil/blob/master/lisp/init-fatfree-evil.el][lisp/init-fatfree-evil.el]]
 ** Installing
-You can clone this repository directly to ***~/.emacs.d/*** directory, but I presonally like to keep my emacs config in code directory and link files with [[https://www.gnu.org/software/stow/manual/stow.html][stow]].
+You can clone this repository directly to ~/.emacs.d/ directory, but I presonally like to keep my emacs config in code directory and link files with [[https://www.gnu.org/software/stow/manual/stow.html][stow]].
 This way I can keep .gitingore empty, since config files will be linked.
 
 #+BEGIN_SRC sh
