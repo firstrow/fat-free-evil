@@ -135,17 +135,6 @@
 (setq minibuffer-prompt-properties '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
 (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
-;; (toggle-frame-maximized)
-
-;; Save all tempfiles in $TMPDIR/emacs$UID/
-(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
-(setq backup-directory-alist
-    `((".*" . ,emacs-tmp-dir)))
-(setq auto-save-file-name-transforms
-    `((".*" ,emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix
-    emacs-tmp-dir)
-
 ;; Reset theme color before loading new theme
 (defadvice load-theme (before disable-before-load)
   (dolist (theme custom-enabled-themes)
@@ -153,7 +142,6 @@
 (ad-activate 'load-theme)
 
 (use-package solarized-theme
-  :ensure t
   :config
   (load-theme 'solarized-light t)
   (let ((line (face-attribute 'mode-line :underline)))
@@ -162,17 +150,14 @@
     (set-face-attribute 'mode-line-inactive nil :underline  line)
     (set-face-attribute 'mode-line          nil :box        nil)
     (set-face-attribute 'mode-line-inactive nil :box        nil)
-    )
-  )
+    ))
 
 (use-package minions
-  :ensure t
   :config
   (setq minions-mode-line-lighter "~")
   (minions-mode))
 
 (use-package moody
-  :ensure t
   :config
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)

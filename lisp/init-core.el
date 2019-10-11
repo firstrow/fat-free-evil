@@ -97,10 +97,22 @@ decrease this. If you experience stuttering, increase this.")
  ;; to older entries in the kill ring.
 (setq kill-do-not-save-duplicates t)
 
+;; Follow symlinks
+(setq vc-follow-symlinks t)
+
 ;;
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
-;; Save clipboard contents into kill-ring before replacing them
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+(setq backup-directory-alist
+    `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+    `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+    emacs-tmp-dir)
+
+; Save clipboard contents into kill-ring before replacing them
 (setq save-interprogram-paste-before-kill t)
 
 ;; When Emacs loses focus seems like a great time to do some garbage collection

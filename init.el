@@ -3,18 +3,6 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;;
-;;; Initialize package
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-
-;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;;
 ;;; Straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -28,42 +16,41 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+;; Use straight manager by default
 (straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 ;;
 ;;; Packages
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
-(use-package hydra :ensure t)
+(use-package hydra)
 (use-package major-mode-hydra
-  :ensure t
   :bind
   ("M-SPC" . major-mode-hydra))
-(use-package expand-region :ensure t)
-(use-package diminish :ensure t)
+(use-package expand-region)
+(use-package diminish)
 (use-package smex
-  :ensure t
   :config
   (smex-initialize))
 (use-package counsel
-  :ensure t
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x))
-(use-package counsel-projectile :ensure t)
-(use-package goto-last-change :ensure t)
+(use-package counsel-projectile)
+(use-package goto-last-change)
 (use-package swiper
-  :ensure t
   :bind ("C-s" . 'swiper))
-(use-package magit :ensure t)
+(use-package magit)
 (use-package yasnippet
-  :ensure t
   :init (setq yas-snippet-dirs '("~/code/yasnippet-go"))
   :config (yas-global-mode 1))
 (use-package recentf
-  :ensure t
   :init
   (setq recentf-max-menu-items 100
         recentf-max-saved-items 500)
@@ -72,16 +59,13 @@
   (run-at-time nil (* 5 60) 'recentf-save-list))
 (use-package ido)
 (use-package ido-vertical-mode
-  :ensure t
   :config
   (ido-vertical-mode))
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :config
   (ivy-mode 1))
 (use-package which-key
-  :ensure t
   :defer 2
   :diminish which-key-mode
   :config
@@ -93,7 +77,6 @@
   (setq which-key-idle-secondary-delay 0.05)
   (which-key-mode))
 (use-package company
-  :ensure t
   :diminish company-mode
   :config
   (progn
@@ -108,7 +91,6 @@
     (define-key company-active-map (kbd "<tab>") 'company-select-next-if-tooltip-visible-or-complete-selection)
     (add-hook 'after-init-hook 'global-company-mode)))
 (use-package flycheck
-  :ensure t
   :diminish flycheck-mode
   :config
   ;; (global-flycheck-mode)
@@ -120,26 +102,21 @@
     (when (equal (cadr govet) "tool")
       (setf (cdr govet) (cddr govet)))))
 (use-package projectile
-  :ensure t
   :init
   (setq projectile-completion-system 'ivy)
   :config
   (projectile-mode))
 (use-package multiple-cursors
-  :ensure t
   :config
   (setq mc/always-run-for-all t))
 (use-package saveplace
-  :ensure nil
   :hook (after-init . save-place-mode))
 (use-package ibuffer
-  :ensure nil
   :commands (ibuffer-find-file
              ibuffer-current-buffer)
   :bind ("C-x C-b" . ibuffer))
-(use-package jump-char :ensure t)
+(use-package jump-char)
 (use-package whitespace
-  :ensure t
   :config
   (progn
     (add-hook 'prog-mode-hook (lambda() (setf show-trailing-whitespace t)))))

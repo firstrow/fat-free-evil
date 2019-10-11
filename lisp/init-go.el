@@ -15,7 +15,6 @@
   (counsel-git-grep nil (format "func %s" sym)))
 
 (use-package lsp-mode
-  :ensure t
   :init
   (setq lsp-before-save-edits nil)
   (setq lsp-eldoc-render-all nil)
@@ -25,12 +24,8 @@
 
 (add-hook 'go-mode-hook #'lsp)
 
-(use-package company-lsp
-  :ensure t
-  :commands company-lsp)
-
-(use-package go-eldoc
-  :ensure t)
+(use-package company-lsp :commands company-lsp)
+(use-package go-eldoc)
 
 (add-hook 'go-mode-hook
           (lambda ()
