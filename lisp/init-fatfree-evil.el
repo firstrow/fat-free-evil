@@ -11,6 +11,11 @@
     (newline)
     (indent-for-tab-command))
 
+  (defun start-from-new-top-line ()
+    (interactive)
+    (previous-line)
+    (start-from-new-line))
+
   (defun insert-mode ()
     "Kill active region if active"
     (interactive)
@@ -45,9 +50,11 @@
    ("y" kill-ring-save)
    ("p" yank)
    ("^" back-to-indentation)
-   ("*" swiper-thing-at-point)
    ("o" start-from-new-line :exit t)
+   ("O" start-from-new-top-line :exit t)
    ("u" undo)
+   ;; Searching
+   ("*" swiper-thing-at-point)
    ("/" counsel-projectile-rg)
    (";" counsel-projectile-switch-to-buffer)
    ;; Visual selection
