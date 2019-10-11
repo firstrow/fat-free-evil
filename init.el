@@ -79,17 +79,16 @@
 (use-package company
   :diminish company-mode
   :config
-  (progn
-    (setq company-minimum-prefix-length 2)
-    (setq company-show-numbers t)
-    (setq company-tooltip-limit 10)
-    (setq company-idle-delay .7)                          ; decrease delay before autocompletion popup shows
-    (setq company-echo-delay .7)                          ; remove annoying blinking
-    (setq company-begin-commands '(self-insert-command))  ; start autocompletion only after typing
-    (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
-    (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
-    (define-key company-active-map (kbd "<tab>") 'company-select-next-if-tooltip-visible-or-complete-selection)
-    (add-hook 'after-init-hook 'global-company-mode)))
+  (setq company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 10)
+  (setq company-idle-delay .7)                          ; decrease delay before autocompletion popup shows
+  (setq company-echo-delay .7)                          ; remove annoying blinking
+  (setq company-begin-commands '(self-insert-command))  ; start autocompletion only after typing
+  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+  (define-key company-active-map (kbd "<tab>") 'company-select-next-if-tooltip-visible-or-complete-selection)
+  (add-hook 'after-init-hook 'global-company-mode))
 (use-package flycheck
   :diminish flycheck-mode
   :config
@@ -118,8 +117,7 @@
 (use-package jump-char)
 (use-package whitespace
   :config
-  (progn
-    (add-hook 'prog-mode-hook (lambda() (setf show-trailing-whitespace t)))))
+    (add-hook 'prog-mode-hook (lambda() (setf show-trailing-whitespace t))))
 
 (require 'init-core)
 (require 'init-ui)
