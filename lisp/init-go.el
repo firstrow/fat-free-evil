@@ -12,7 +12,7 @@
 
 (defun go-search-func-at-cursor (sym)
   (interactive (list (thing-at-point 'symbol)))
-  (counsel-git-grep nil (format "func %s" sym)))
+  (counsel-git-grep (format "func %s" sym)))
 
 (use-package lsp-mode
   :init
