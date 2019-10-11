@@ -2,9 +2,6 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(setq user-init-file (or load-file-name (buffer-file-name)))
-(setq user-emacs-directory (file-name-directory user-init-file))
-
 ;;
 ;;; Initialize package
 (require 'package)
@@ -114,7 +111,9 @@
   :ensure t
   :diminish flycheck-mode
   :config
-  (global-flycheck-mode)
+  ;; (global-flycheck-mode)
+  (add-hook 'go-mode-hook #'flycheck-mode)
+
   ;; Fix flycheck error messages for golang
   ;; https://github.com/flycheck/flycheck/issues/1523#issuecomment-469402280
   (let ((govet (flycheck-checker-get 'go-vet 'command)))
