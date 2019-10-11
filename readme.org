@@ -8,7 +8,8 @@
    Ofcourse Doom and Spacemacs solved most of the integration issues, but still I consider evil to be too complex.
    On the other side I wanted to explore emacs internals more and built my own modal mode.
 ** Goals
-   - Minimal setup
+   - Vim emulation without evil.
+   - Minimal setup.
    - Fast startup time ~1 second.
    - As close to vanilla emacs as possible.
 ** Keybindings

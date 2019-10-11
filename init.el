@@ -127,7 +127,9 @@
   :config
   (projectile-mode))
 (use-package multiple-cursors
-  :ensure t)
+  :ensure t
+  :config
+  (setq mc/always-run-for-all t))
 (use-package saveplace
   :ensure nil
   :hook (after-init . save-place-mode))
@@ -142,7 +144,6 @@
   :config
   (progn
     (add-hook 'prog-mode-hook (lambda() (setf show-trailing-whitespace t)))))
-
 
 (require 'init-core)
 (require 'init-ui)
