@@ -79,7 +79,7 @@
 (menu-bar-mode -1)
 (global-auto-revert-mode 1)
 (prefer-coding-system 'utf-8)
-(fringe-mode 8)
+(fringe-mode 1)
 (electric-pair-mode)
 (put 'dired-find-alternate-file 'disabled nil)
 
