@@ -119,9 +119,15 @@
   :config
     (add-hook 'prog-mode-hook (lambda() (setf show-trailing-whitespace t))))
 
+(use-package org
+  :config
+  (setq org-default-notes-file (concat org-directory "/gtd.org"))
+  (setq org-agenda-files (list "~/org/gtd.org")))
+
 (require 'init-core)
 (require 'init-ui)
 (require 'init-go)
+(require 'init-lisp)
 (require 'init-elisp)
 (require 'init-fatfree-evil)
 (require 'init-projects)
