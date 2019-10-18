@@ -43,7 +43,7 @@
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x))
 (use-package counsel-projectile)
-(use-package goto-last-change)
+(use-package goto-chg)
 (use-package swiper
   :bind ("C-s" . 'swiper))
 (use-package magit)
